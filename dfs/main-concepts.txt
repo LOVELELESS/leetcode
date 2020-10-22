@@ -1,12 +1,12 @@
 Find cycle:
 - Find back edges (i.e. when neighbor is visited AND in the stack)
 
+Toposort:
+- Prepend to list after processing all neighs of node
+
 Longest path in DAG:
 - Toposort
 - Relax edges in toposort order -> get max(dist(v))
-
-Toposort:
-- Prepend to list after processing all neighs of node
 
 Articulation Bridge:
 - Note down the start time of dfs-visit to each node
@@ -16,4 +16,11 @@ Articulation Bridge:
 Articulation Point:
 - Similar to Articulation Bridge, but u is Articulation Point if for (u->v), start[u] <= loLink[v]
 
-Strongly-Connected Components:
+Strongly-Connected Components (Tarjan):
+- Assume start + loLink nums are calculated
+- Do DFS and keep a stack of all vertices encounted if (start == loLink) -> root of SCC 
+- Pop all vertices that have same loLink val as they belong to same SCC
+
+Check graph is biconnected (i.e. if there are two vertex-disjoint paths between any two vertices. In a Biconnected Graph, there is a simple cycle through any two vertices.)
+- First check graph is connected
+- Then check there exists no Articulation Points
