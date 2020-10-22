@@ -1,0 +1,19 @@
+Find cycle:
+- Find back edges (i.e. when neighbor is visited AND in the stack)
+
+Longest path in DAG:
+- Toposort
+- Relax edges in toposort order -> get max(dist(v))
+
+Toposort:
+- Prepend to list after processing all neighs of node
+
+Articulation Bridge:
+- Note down the start time of dfs-visit to each node
+- Note down the loLink time (earliest startTime) by taking min of its children (except parent)
+- (u->v) is bridge if start[u] < loLink[v]
+
+Articulation Point:
+- Similar to Articulation Bridge, but u is Articulation Point if for (u->v), start[u] <= loLink[v]
+
+Strongly-Connected Components:
